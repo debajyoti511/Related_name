@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    table, th, td, tr{
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+</style>
+  <h1>{{SO.sname}}</h1>
+  <h1>{{SO.principal}}</h1>
+  <h1>{{SO.contact}}</h1>
+  <h1>{{SO.loc}}</h1>
+  <center>
+    <table>
+        <tr>
+            <th>SLNO</th>
+            <th>Sname</th>
+            <th>Pno</th>
+            <th>Address</th>
+        </tr>
+        {% for std in SO.students.all %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{std.sid}}</td>
+            <td>{{std.stdname}}</td>
+            <td>{{std.pno}}</td>
+            <td>{{std.add}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+  </center>
+{% endblock content %}
